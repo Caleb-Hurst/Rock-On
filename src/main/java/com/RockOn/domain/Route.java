@@ -1,5 +1,5 @@
 package com.RockOn.domain;
 
-public class Forum {
+public class Route {
 
 }

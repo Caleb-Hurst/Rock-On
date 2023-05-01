@@ -6,7 +6,19 @@
 
 </head>
 <body>
-	
+	<div class="container">
+  <img th:src="@{/images/8.png}" alt="Welcome to Rock On!">
+  <div class="login">
+    <h2>Login or Register!</h2>
+    <form action="" method="post">
+      <label for="username">Username:</label>
+      <input type="text" th:field="${user.username}" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" th:field="${user.password}" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
 	
 		
 </body>
