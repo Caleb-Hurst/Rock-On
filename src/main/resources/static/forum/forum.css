@@ -4,10 +4,8 @@ nav {
 	align-items: center;
 	background-color: transparent;
 	padding: 10px;
-	 border-bottom: 1px solid  #e2e2e2;
-	 
+	border-bottom: 1px solid #e2e2e2;
 }
-
 
 .logo {
 	max-height: 63px;
@@ -85,3 +83,37 @@ body {
 		#504f5c);
 }
 
+.BH-head {
+	color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+	align-items: center;
+	font-size: 30px;
+	font-family: Tahoma;
+	text-align: center;
+	padding-top: 60px;
+}
+
+p::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 60%;
+	background-color: #e2e2e2;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+}
+title{
+	
+}

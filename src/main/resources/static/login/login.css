@@ -1,0 +1,16 @@
+
+
+body {
+	margin: 0;
+	background-image: linear-gradient(to right top, #151616, #202426, #2c3337, #3c414a,
+		#504f5c);
+}
+
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+}
