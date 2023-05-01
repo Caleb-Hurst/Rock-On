@@ -14,23 +14,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import org.apache.logging.log4j.message.Message;
-
 @Entity
 public class User {
     private Long userId;
-    private String userName;
+    private String name;
     private String password;
     private List<Message> messages = new ArrayList<>();
     private List<Channel> channels = new ArrayList<>();
     
-    public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getUserId() {
         return userId;
@@ -39,13 +31,20 @@ public class User {
         this.userId = userId;
     }
     @Column(unique = true)
-    public String getUsername() {
-        return userName;
+    public String getName() {
+        return name;
     }
-    public void setUsername(String username) {
-        this.userName = username;
+    public void setName(String name) {
+        this.name = name;
     }
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    
+    public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public List<Message> getMessages() {
         return messages;
     }
@@ -64,4 +63,5 @@ public class User {
     public void setChannels(List<Channel> channels) {
         this.channels = channels;
     }
+    
 }

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import com.RockOn.domain.User;
 import com.RockOn.repository.UserRepository;
 
-
 @Service
 public class UserService {
+
 	@Autowired
 	UserRepository userRepo;
 	public User save(User user) {
@@ -26,8 +26,9 @@ public class UserService {
 		return userRepo.findById(id).get();
 	}
 
-	public User findByUsername(String username) {
-		return userRepo.findByName(username);
+	public User findByName(String name) {
+		return userRepo.findByName(name);
 		
 	}
+
 }

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.RockOn.domain.Channel;
 import com.RockOn.repository.ChannelRepository;
-
-
 @Service
 public class ChannelService {
 	@Autowired

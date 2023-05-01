@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 public class Channel {
     private Long channelId;
@@ -49,3 +47,4 @@ public class Channel {
         this.messages = messages;
     }
 }
+

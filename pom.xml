@@ -8,15 +8,17 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com</groupId>
-	<artifactId>Rock-On</artifactId>
+	<groupId>com.coderscampus</groupId>
+	<artifactId>assignment-13</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Rock-On</name>
-	<description>Full CRUD App</description>
+	<name>Assignment 13</name>
+	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-<dependencies>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

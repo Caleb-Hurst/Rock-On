@@ -5,13 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.RockOn.domain.User;
 import com.RockOn.service.UserService;
 
+
+
 @Controller
+
 public class LoginController {
 	@Autowired
 	private UserService userService;
