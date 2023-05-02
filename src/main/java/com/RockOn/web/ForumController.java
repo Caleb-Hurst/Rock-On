@@ -1,7 +1,5 @@
 package com.RockOn.web;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +9,25 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.RockOn.domain.Channel;
 import com.RockOn.domain.Message;
+import com.RockOn.domain.User;
 import com.RockOn.service.ChannelService;
+import com.RockOn.service.UserService;
 
-
-
-@Controller 
+@Controller
 
 public class ForumController {
 	@Autowired
 	private ChannelService channelService;
-//	@Autowired
-//	private MessageService messageService;
+	@Autowired
+	private UserService userService;
 
-	@GetMapping("/forums")
-	public String channel(ModelMap model) {
+	@GetMapping("/forums/{userId}/")
+	public String channel(@PathVariable("userId") Long userId, ModelMap model) {
+		User user = userService.findById(userId);
+		model.put("user", user.getName());
 		List<Channel> channels = channelService.findAll();
 		Channel channel = new Channel();
 		model.put("channel", channel);
@@ -36,19 +35,19 @@ public class ForumController {
 		return "forums";
 	}
 
-	@PostMapping("/forums")
-	public String newChannel(Channel channel) {
+	@PostMapping("/forums/{userId}")
+	public String newChannel(Channel channel, @PathVariable("userId") Long userId) {
 		channelService.save(channel);
 		System.out.println(channel);
-		return "redirect:/forums/";
+		return "redirect:/forums/" + userId + "/";
 	}
 
-	@GetMapping("/channel/{channelId}")
-	public String getChannelData(@PathVariable Long channelId, Model model) {
-	    Channel channel = channelService.findById(channelId);
-	    model.addAttribute("channel", channel);
-	    model.addAttribute("channelId", channel.getChannelId());
-	    model.addAttribute("newMessage", new Message());
-	    return "forum";
-	}
+//	@GetMapping("/forums/{userId}")
+//	public String getChannelData(@PathVariable Long channelId, Model model) {
+//		Channel channel = channelService.findById(channelId);
+//		model.addAttribute("channel", channel);
+//		model.addAttribute("channelId", channel.getChannelId());
+//		model.addAttribute("newMessage", new Message());
+//		return "forum";
+//	}
 }

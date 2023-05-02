@@ -9,10 +9,13 @@
 
 	<nav>
 		<img style="padding-left: 30px;" class="logo"
-			th:src="@{/images/8.png}" alt="Logo"> <a href="/home"
-			style="padding-left: 30px;">HOME</a> <a href="/forums/"
+			th:src="@{/images/8.png}" alt="Logo"> <a
+			th:href="@{/home/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">HOME</a> <a
+			th:href="@{/forums/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">FORUMS</a> <a href="/routes/"
 			style="padding-left: 30px;">ROUTES</a>
+			<a th:text="'User: ' + ${user}" style="padding-left: 30px; font-style: italic;"></a>
 
 	</nav>
 	<div class="bottom-half">
@@ -34,13 +37,13 @@
 		</table>
 	</div>
 	<div class="form-container">
-		<form method="post" action="/forums">
+		<form method="post" th:action="@{/forums/{userId}/(userId=${userId})}">
 			<div>
-				<label>New Channel: </label><input type="text"
+				<label>New Channel: </label> <input type="text"
 					th:field="${channel.channelName}" />
 			</div>
 			<div>
-				<label>Description: </label><input type="text"
+				<label>Description: </label> <input type="text"
 					th:field="${channel.description}" />
 			</div>
 			<div>

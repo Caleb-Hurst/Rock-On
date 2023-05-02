@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.RockOn.domain.User;
 import com.RockOn.service.UserService;
@@ -23,9 +22,10 @@ public class LoginController {
 		return "login";
 	}
 	@PostMapping("/login")
-	public String findByName(User user) {
+	public String findByName(User user,ModelMap model) {
 		userService.save(user);
-		return "home";
+		model.put("user", user);
+		return "redirect:/home/" + user.getUserId() ;
 	}
 
 	
