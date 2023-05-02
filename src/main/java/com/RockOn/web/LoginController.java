@@ -25,7 +25,7 @@ public class LoginController {
 	public String findByName(User user,ModelMap model) {
 		userService.save(user);
 		model.put("user", user);
-		return "redirect:/home/" + user.getUserId() ;
+		return "redirect:/home/" + user.getUserId() + "/" ;
 	}
 
 	
