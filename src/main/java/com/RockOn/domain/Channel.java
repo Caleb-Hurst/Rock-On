@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 public class Channel {
     private Long channelId;
     private String channelName;
+    private String description;
     private List<User> users = new ArrayList<>();
     private List<Message> messages = new ArrayList<>();
     
@@ -46,5 +47,12 @@ public class Channel {
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+    
 }
 
