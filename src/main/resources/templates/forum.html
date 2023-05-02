@@ -10,7 +10,8 @@
 	<nav>
 		<img style="padding-left: 30px;" class="logo"
 			th:src="@{/images/8.png}" alt="Logo"> <a href="/home"
-			style="padding-left: 30px;">HOME</a> <a href="/forums"
+			style="padding-left: 30px;">HOME</a> <a
+			th:href="@{/forums/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">FORUMS</a> <a href="/routes/"
 			style="padding-left: 30px;">ROUTES</a>
 
@@ -20,33 +21,38 @@
 		<p class="BH-head" th:text="${channel.channelName}"></p>
 
 	</div>
-<!-- 	<div> -->
-<!-- 		<table class="channel-table"> -->
-<!-- 			<tbody> -->
-<!-- 				<tr th:each="channel: ${channels}"> -->
-<!-- 					<td><a class="channels" -->
-<!-- 						th:href="@{/channel/{channelId}(channelId=${channel.channelId})}" -->
-<!-- 						th:text="${channel.channelName}"></a> <br /> <span -->
-<!-- 						class="description"><small th:text="${channel.description}"></small></span> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
-<!-- 			</tbody> -->
-<!-- 		</table> -->
-<!-- 	</div> -->
+	<!-- 	<div> -->
+	<!-- 		<table class="channel-table"> -->
+	<!-- 			<tbody> -->
+	<!-- 				<tr th:each="channel: ${channels}"> -->
+	<!-- 					<td><a class="channels" -->
+	<!-- 						th:href="@{/channel/{channelId}(channelId=${channel.channelId})}" -->
+	<!-- 						th:text="${channel.channelName}"></a> <br /> <span -->
+	<!-- 						class="description"><small th:text="${channel.description}"></small></span> -->
+	<!-- 					</td> -->
+	<!-- 				</tr> -->
+	<!-- 			</tbody> -->
+	<!-- 		</table> -->
+	<!-- 	</div> -->
 	<div class="message-window">
-       <a>hello</a>
-      </div>
+		<div class="message-container">
+			<div th:each="message : ${channel.messages}">
+				<p class="message-text"
+					th:text="${message.user.name + ': ' + message.message}"></p>
+			</div>
+		</div>
+	</div>
 	<div class="form-container">
-		<form method="post" action="/forums">
+		<form method="post"
+			th:action="@{/channel/{channelId}/{userId}(channelId=${channel.channelId}, userId=${userId})}">
 			<div style="padding: 20px;">
-				<label>Send Message: </label><input type="text"
-					th:field="${newMessage}" />
-			</div>			
+				<label>Send Message: </label> <input type="text"
+					th:field="${message.message}" />
+			</div>
 			<div>
 				<input class="submit-button" type="submit" value="Create" />
 			</div>
 		</form>
 	</div>
-
 </body>
 </html>

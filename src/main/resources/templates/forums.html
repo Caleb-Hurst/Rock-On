@@ -28,7 +28,7 @@
 			<tbody>
 				<tr th:each="channel: ${channels}">
 					<td><a class="channels"
-						th:href="@{/channel/{channelId}(channelId=${channel.channelId})}"
+						th:href="@{/channel/{channelId}/{userId}(channelId=${channel.channelId}, userId=${userId})}"
 						th:text="${channel.channelName}"></a> <br /> <span
 						class="description"><small th:text="${channel.description}"></small></span>
 					</td>

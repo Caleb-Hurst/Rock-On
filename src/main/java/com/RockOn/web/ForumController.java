@@ -27,6 +27,7 @@ public class ForumController {
 	@GetMapping("/forums/{userId}/")
 	public String channel(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
+		model.put("userId", userId);
 		model.put("user", user.getName());
 		List<Channel> channels = channelService.findAll();
 		Channel channel = new Channel();
@@ -42,12 +43,14 @@ public class ForumController {
 		return "redirect:/forums/" + userId + "/";
 	}
 
-//	@GetMapping("/forums/{userId}")
-//	public String getChannelData(@PathVariable Long channelId, Model model) {
-//		Channel channel = channelService.findById(channelId);
-//		model.addAttribute("channel", channel);
-//		model.addAttribute("channelId", channel.getChannelId());
-//		model.addAttribute("newMessage", new Message());
-//		return "forum";
-//	}
+	@GetMapping("/channel/{channelId}/{userId}")
+	public String getChannelData(@PathVariable Long channelId,@PathVariable("userId") Long userId, Model model) {
+		Channel channel = channelService.findById(channelId);
+		model.addAttribute("channel", channel);
+		model.addAttribute("userId", userId);
+		model.addAttribute("channelId", channel.getChannelId());
+		
+		model.addAttribute("message", new Message());
+		return "forum";
+	}
 }
