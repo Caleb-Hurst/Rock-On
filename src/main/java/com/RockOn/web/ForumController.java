@@ -33,14 +33,14 @@ public class ForumController {
 		Channel channel = new Channel();
 		model.put("channel", channel);
 		model.put("channels", channels);
-		return "forums/";
+		return "forums";
 	}
 
 	@PostMapping("/forums")
 	public String newChannel(Channel channel) {
 		channelService.save(channel);
 		System.out.println(channel);
-		return "redirect:/forum/";
+		return "redirect:/forums/";
 	}
 
 	@GetMapping("/channel/{channelId}")
@@ -49,6 +49,6 @@ public class ForumController {
 	    model.addAttribute("channel", channel);
 	    model.addAttribute("channelId", channel.getChannelId());
 	    model.addAttribute("newMessage", new Message());
-	    return "forum/";
+	    return "forum";
 	}
 }

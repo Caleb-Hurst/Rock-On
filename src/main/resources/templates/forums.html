@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 <title>Forum</title>
-<link rel="stylesheet" type="text/css" href="forums.css" />
+<link rel="stylesheet" type="text/css" href="/forum/forums.css" />
 
 </head>
 <body>
 
 	<nav>
 		<img style="padding-left: 30px;" class="logo"
-			th:src="@{/images/8.png}" alt="Logo"> <a href="/home/"
-			style="padding-left: 30px;">HOME</a> <a href="/forum/"
-			style="padding-left: 30px;">CHAT</a> <a href="/routes/"
+			th:src="@{/images/8.png}" alt="Logo"> <a href="/home"
+			style="padding-left: 30px;">HOME</a> <a href="/forums/"
+			style="padding-left: 30px;">FORUMS</a> <a href="/routes/"
 			style="padding-left: 30px;">ROUTES</a>
 
 	</nav>
@@ -34,7 +34,7 @@
 		</table>
 	</div>
 	<div class="form-container">
-		<form method="post" action="/forum">
+		<form method="post" action="/forums">
 			<div>
 				<label>New Channel: </label><input type="text"
 					th:field="${channel.channelName}" />

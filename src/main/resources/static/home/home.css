@@ -53,6 +53,14 @@ nav a:hover {
 	background-color: transparent;
 	color: #33FF46;
 }
+.nav-item-grow {
+  flex-grow: 1;
+}
+
+.nav-right {
+  margin-left: auto;
+  justify-content: center;
+}
 
 .search-container {
 	display: flex;

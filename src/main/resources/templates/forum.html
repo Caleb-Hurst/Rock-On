@@ -2,47 +2,46 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 <title>Forum</title>
-<link rel="stylesheet" type="text/css" href="forum.css" />
+<link rel="stylesheet" type="text/css" href="/forum/forum.css" />
 
 </head>
 <body>
 
 	<nav>
 		<img style="padding-left: 30px;" class="logo"
-			th:src="@{/images/8.png}" alt="Logo"> <a href="/home/"
-			style="padding-left: 30px;">HOME</a> <a href="/forum/"
-			style="padding-left: 30px;">CHAT</a> <a href="/routes/"
+			th:src="@{/images/8.png}" alt="Logo"> <a href="/home"
+			style="padding-left: 30px;">HOME</a> <a href="/forums"
+			style="padding-left: 30px;">FORUMS</a> <a href="/routes/"
 			style="padding-left: 30px;">ROUTES</a>
 
 	</nav>
 	<div class="bottom-half">
 
-		<p class="BH-head">FORUMS</p>
+		<p class="BH-head" th:text="${channel.channelName}"></p>
 
 	</div>
-	<div>
-		<table class="channel-table">
-			<tbody>
-				<tr th:each="channel: ${channels}">
-					<td><a class="channels"
-						th:href="@{/channel/{channelId}(channelId=${channel.channelId})}"
-						th:text="${channel.channelName}"></a> <br /> <span
-						class="description"><small th:text="${channel.description}"></small></span>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<!-- 	<div> -->
+<!-- 		<table class="channel-table"> -->
+<!-- 			<tbody> -->
+<!-- 				<tr th:each="channel: ${channels}"> -->
+<!-- 					<td><a class="channels" -->
+<!-- 						th:href="@{/channel/{channelId}(channelId=${channel.channelId})}" -->
+<!-- 						th:text="${channel.channelName}"></a> <br /> <span -->
+<!-- 						class="description"><small th:text="${channel.description}"></small></span> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
+<!-- 			</tbody> -->
+<!-- 		</table> -->
+<!-- 	</div> -->
+	<div class="message-window">
+       <a>hello</a>
+      </div>
 	<div class="form-container">
-		<form method="post" action="/forum">
-			<div>
-				<label>New Channel: </label><input type="text"
-					th:field="${channel.channelName}" />
-			</div>
-			<div>
-				<label>Description: </label><input type="text"
-					th:field="${channel.description}" />
-			</div>
+		<form method="post" action="/forums">
+			<div style="padding: 20px;">
+				<label>Send Message: </label><input type="text"
+					th:field="${newMessage}" />
+			</div>			
 			<div>
 				<input class="submit-button" type="submit" value="Create" />
 			</div>
