@@ -43,14 +43,5 @@ public class ForumController {
 		return "redirect:/forums/" + userId + "/";
 	}
 
-	@GetMapping("/channel/{channelId}/{userId}")
-	public String getChannelData(@PathVariable Long channelId,@PathVariable("userId") Long userId, Model model) {
-		Channel channel = channelService.findById(channelId);
-		model.addAttribute("channel", channel);
-		model.addAttribute("userId", userId);
-		model.addAttribute("channelId", channel.getChannelId());
-		
-		model.addAttribute("message", new Message());
-		return "forum";
-	}
+	
 }

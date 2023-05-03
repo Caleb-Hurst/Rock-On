@@ -1,0 +1,187 @@
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	padding: 10px;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+head {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.logo {
+	max-height: 63px;
+	max-width: 63px;
+}
+
+nav a {
+	color: #e2e2e2;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 16px;
+	font-family: Tahoma;
+}
+
+nav a:hover::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 100%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	padding: 0 5px; /* Add padding to the line */
+}
+
+nav a::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	transition: width 0.3s ease-in-out; /* Add transition effect */
+}
+
+nav a:hover::after {
+	width: 100%; /* Increase the width on hover */
+}
+
+nav a:hover {
+	background-color: transparent;
+	color: #33FF46;
+}
+
+body {
+	margin: 0;
+	background-image: linear-gradient(to right top, #151616, #202426, #2c3337, #3c414a,
+		#504f5c);
+}
+
+.BH-head {
+	color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+	align-items: center;
+	font-size: 30px;
+	font-family: Tahoma;
+	text-align: center;
+	padding-top: 60px;
+	text-transform: uppercase;
+}
+
+p::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 60%;
+	background-color: #e2e2e2;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+}
+
+.fields-container {
+	display: flex;
+	justify-content: center;
+}
+
+.message-window {
+	background-color: #f2f2f2;
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 10px;
+	word-wrap: break-word;
+	 /* set a maximum height to prevent the container from growing infinitely */
+    overflow: auto;
+}
+
+.field {
+	margin: 10px auto;
+	text-align: center;
+	color: #e2e2e2;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 18px;
+	font-family: Tahoma;
+	text-transform: uppercase;
+	display: block;
+	margin-right: 20px;
+}
+
+.fields-container .field::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 100%;
+	background-color: #e2e2e2;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.value {
+	text-align: center;
+	color: #e2e2e2;
+	text-decoration: none;
+	padding: 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 15px;
+	font-family: Tahoma;
+	text-transform: uppercase;
+	margin-right: 10px;
+}
+.description{
+		text-align: center;
+	color: black;
+	text-decoration: none;
+	padding: 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 15px;
+	font-family: Tahoma;
+	text-transform: uppercase;
+	margin-right: 10px;
+	white-space: pre-wrap;
+}
+form input[type="submit"] {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41 !important;
+}
+.submit-button {
+  display: block; /* This makes the button a block element */
+  margin: 0 auto; /* This centers the block element horizontally */
+  padding-top:10px;
+  margin: 20px auto 0;
+}

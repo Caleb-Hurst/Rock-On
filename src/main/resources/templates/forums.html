@@ -13,7 +13,7 @@
 			th:href="@{/home/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">HOME</a> <a
 			th:href="@{/forums/{userId}/(userId=${userId})}"
-			style="padding-left: 30px;">FORUMS</a> <a href="/routes/"
+			style="padding-left: 30px;">FORUMS</a> <a th:href="@{/routes/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">ROUTES</a>
 			<a th:text="'User: ' + ${user}" style="padding-left: 30px; font-style: italic;"></a>
 

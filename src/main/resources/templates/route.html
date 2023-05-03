@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<title>Forum</title>
+<link rel="stylesheet" type="text/css" href="/routes/route.css" />
+
+</head>
+<body>
+
+	<nav>
+		<img style="padding-left: 30px;" class="logo"
+			th:src="@{/images/8.png}" alt="Logo"> <a
+			th:href="@{/home/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">HOME</a> <a
+			th:href="@{/forums/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">FORUMS</a> <a
+			th:href="@{/routes/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">ROUTES</a> <a
+			th:text="'User: ' + ${user}"
+			style="padding-left: 30px; font-style: italic;"></a>
+
+	</nav>
+	<div class="head">
+
+		<p class="BH-head" th:text="${route.name}"></p>
+
+	</div>
+	<div class="fields-container">
+		<div>
+			<div class="field" th:text="'Name:'"></div>
+			<div class="value" th:text="${route.name}"></div>
+		</div>
+		<div>
+			<div class="field" th:text="'FA: '"></div>
+			<div class="value" th:text="${route.firstAscent}"></div>
+		</div>
+		<div>
+			<div class="field" th:text="'Style: '"></div>
+			<div class="value" th:text="${route.type}"></div>
+		</div>
+		<div>
+			<div class="field" th:text="'Grade: '"></div>
+			<div class="value" th:text="${route.grade}"></div>
+		</div>
+		<div>
+			<div class="field" th:text="'Location: '"></div>
+			<div class="value" th:text="${route.location}"></div>
+		</div>
+		<div>
+			<div class="field" th:text="'Protection: '"></div>
+			<div class="value" th:text="${route.protection}"></div>
+		</div>
+	</div>
+	<div class="field">description</div>
+	<div class="message-window">
+		<pre class="description" th:utext="${route.description}"></pre>
+	</div>
+	<div >
+		<form method="get" th:action="@{/updateroute/{routeId}/{userId}(routeId=${route.routeId}, userId=${userId})}">
+		
+			<div>
+				<input class="submit-button" type="submit" value="Update" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

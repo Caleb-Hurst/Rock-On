@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<title>Forum</title>
+<link rel="stylesheet" type="text/css" href="/routes/createroute.css" />
+
+</head>
+<body>
+
+	<nav>
+		<img style="padding-left: 30px;" class="logo"
+			th:src="@{/images/8.png}" alt="Logo"> <a
+			th:href="@{/home/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">HOME</a> <a
+			th:href="@{/forums/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">FORUMS</a> <a
+			th:href="@{/routes/{userId}/(userId=${userId})}"
+			style="padding-left: 30px;">ROUTES</a> <a
+			th:text="'User: ' + ${user}"
+			style="padding-left: 30px; font-style: italic;"></a>
+
+	</nav>
+	<div class="head">
+
+		<p class="BH-head" th:text="${route.name}"></p>
+
+	</div>
+
+	<form method="post"
+		th:action="@{/updateroute/{routeId}/{userId}(routeId=${route.routeId},userId=${userId})}"
+		th:object="${route}">
+		<div class="fields-container">
+			<div class="field">
+				<div th:text="'Name:'"></div>
+				<input name="name" type="text" th:value="${route.name}" />
+			</div>
+			<div class="field">
+				<div th:text="'FA: '"></div>
+				<input name="firstAscent" type="text"
+					th:value="${route.firstAscent}" />
+			</div>
+			<div class="field">
+				<div th:text="'Style: '"></div>
+				<input name="type" type="text" th:value="${route.type}" />
+			</div>
+			<div class="field">
+				<div th:text="'Grade: '"></div>
+				<input name="grade" type="text" th:value="${route.grade}" />
+			</div>
+			<div class="field">
+				<div th:text="'Location: '"></div>
+				<input name="location" type="text" th:value="${route.location}" />
+			</div>
+			<div class="field">
+				<div th:text="'Protection: '"></div>
+				<input name="protection" type="text" th:value="${route.protection}" />
+			</div>
+		</div>
+		<div class="field">description</div>
+		<div class="input-container">
+			<div class="message-window">
+				<textarea class="description" name="description" rows="10"
+					th:text="${route.description}"></textarea>
+
+			</div>
+		</div>
+		<div>
+			<input class="submit-button" type="submit" value="Update" />
+		</div>
+	</form>
+</body>
+</html>

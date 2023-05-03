@@ -1,0 +1,256 @@
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	padding: 10px;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+bottom-half {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+new-channel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.logo {
+	max-height: 63px;
+	max-width: 63px;
+}
+
+nav a {
+	color: #e2e2e2;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 16px;
+	font-family: Tahoma;
+}
+
+nav a:hover::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 100%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	padding: 0 5px; /* Add padding to the line */
+}
+
+nav a::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	transition: width 0.3s ease-in-out; /* Add transition effect */
+}
+
+nav a:hover::after {
+	width: 100%; /* Increase the width on hover */
+}
+
+nav a:hover {
+	background-color: transparent;
+	color: #33FF46;
+}
+
+.search-container {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border-color: white;
+}
+
+.search-container input[type="text"] {
+	padding: 10px;
+	font-size: 16px;
+	background-color: transparent;
+	border-radius: 10px;
+	border-color: white;
+}
+
+.search-container button {
+	padding: 10px;
+	margin-left: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+table {
+	display: flex;
+	justify-content: center;
+}
+
+channels {
+	display: flex;
+	justify-content: center;
+}
+
+body {
+	margin: 0;
+	background-image: linear-gradient(to right top, #151616, #202426, #2c3337, #3c414a,
+		#504f5c);
+}
+
+.BH-head {
+	color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+	align-items: center;
+	font-size: 30px;
+	font-family: Tahoma;
+	text-align: center;
+	padding-top: 60px;
+}
+
+p::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 60%;
+	background-color: #e2e2e2;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.channel-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.channel-table tbody {
+  width: 100%;
+}
+
+.channel-table td {
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
+  padding: 5px;
+}
+
+.channel-table tr:nth-child(even) {
+background-image: linear-gradient(to left bottom, #5b5b5b, #6c6c6c, #7e7e7e, #909090, #a3a3a3);     
+}
+
+.channel-table tr:nth-child(odd) {
+  background-image: linear-gradient(to right top, #5b5b5b, #6c6c6c, #7e7e7e, #909090, #a3a3a3);
+  
+}
+
+.channel-table tr:nth-child(even) a,
+.channel-table tr:nth-child(odd) a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Tahoma;
+  color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+}
+.channel-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+.channel-table tr:nth-child(even) a:hover,
+.channel-table tr:nth-child(odd) a:hover {
+  color: #33FF46;
+}
+tr td a {
+  color: #fff;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  
+  border-radius: 5px;
+  background-color: transparent;
+ 
+}
+
+form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+form input[type="text"],
+form textarea {
+	opacity: .4;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+form textarea {
+  height: 100px;
+}
+
+form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+label {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+  font-family: Tahoma;
+  font-weight: normal;
+}
+.description{
+	color: #4A4A4A;
+  font-size: 15px;
+  margin-right: 10px;
+  font-family: Tahoma;
+  font-weight: normal;
+  font-style: italic;
+}

@@ -21,6 +21,7 @@ public class User {
     private String password;
     private List<Message> messages = new ArrayList<>();
     private List<Channel> channels = new ArrayList<>();
+    private List<Route> routes = new ArrayList<>();
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,5 +64,17 @@ public class User {
     public void setChannels(List<Channel> channels) {
         this.channels = channels;
     }
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "user_route",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "route_id")
+    )
+	public List<Route> getRoutes() {
+		return routes;
+	}
+	public void setRoutes(List<Route> routes) {
+		this.routes = routes;
+	}
     
 }
