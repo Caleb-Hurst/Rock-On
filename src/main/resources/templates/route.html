@@ -16,7 +16,7 @@
 			style="padding-left: 30px;">FORUMS</a> <a
 			th:href="@{/routes/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">ROUTES</a> <a
-			th:text="'User: ' + ${user}"
+			th:text="'User: ' + ${username}"
 			style="padding-left: 30px; font-style: italic;"></a>
 
 	</nav>
@@ -55,13 +55,21 @@
 	<div class="message-window">
 		<pre class="description" th:utext="${route.description}"></pre>
 	</div>
-	<div >
-		<form method="get" th:action="@{/updateroute/{routeId}/{userId}(routeId=${route.routeId}, userId=${userId})}">
-		
+	<div>
+		<form method="get"
+			th:action="@{/updateroute/{routeId}/{userId}(routeId=${route.routeId}, userId=${userId})}">
+
 			<div>
 				<input class="submit-button" type="submit" value="Update" />
 			</div>
 		</form>
+		<div th:if="${not user.routes.contains(route)}">
+			<form method="post"
+				th:action="@{/updateroute/{routeId}/{userId}/completed(routeId=${route.routeId},userId=${user.userId})}">
+				<input type="hidden" th:field="${route.routeId}" /> <input
+					class="submit-button" type="submit" value="I've done this route" />
+			</form>
+		</div>
 	</div>
 </body>
 </html>

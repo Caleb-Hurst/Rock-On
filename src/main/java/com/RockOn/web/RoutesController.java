@@ -45,9 +45,10 @@ public class RoutesController {
 	public String getRouteData(@PathVariable Long routeId,@PathVariable("userId") Long userId, ModelMap model) {
 		Route route = routesService.findById(routeId);
 		User user = userService.findById(userId);
-		model.addAttribute("user",user.getName());
+		model.addAttribute("username",user.getName());
 		String description = route.getDescription().replaceAll("<br/>", "\n");
 		route.setDescription(description);
+		model.put("user", user);
 		model.put("route", route);
 		model.addAttribute("userId", userId);
 		model.addAttribute("routeId", route.getRouteId());		
@@ -84,5 +85,19 @@ public class RoutesController {
 	public String updatedRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId, Route route) {
 		routesService.save(route);		
 		return "redirect:/route/" + routeId + "/" + userId;
+	}
+	@PostMapping("/updateroute/{routeId}/{userId}/completed")
+	public String updatecompletedRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId) {
+		User user = userService.findById(userId);
+		Route route = routesService.findById(routeId);
+		route.setCompleted(true);
+		user.getRoutes().add(route);
+		userService.save(user);		
+		return "redirect:/route/" + routeId + "/" + userId;
+	}
+	@PostMapping("/updateroute/{routeId}/{userId}/delete")
+	public String deleteRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId, Route route) {
+		routesService.delete(route);		
+		return "redirect:/routes/" + userId + "/";
 	}
 }

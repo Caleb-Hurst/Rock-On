@@ -41,6 +41,19 @@
 			<p class="BH-head">COMPLETED ROUTES</p>
 		
 	</div>
+	<div>
+		<table class="channel-table">
+			<tbody>
+				<tr th:each="route: ${routes}">
+					<td><a class="channels"
+						th:href="@{/route/{routeId}/{userId}(routeId=${route.routeId}, userId=${userId})}"
+						th:text="${route.name}"></a> <br /> <span
+						class="description"><small th:text="${route.grade}"></small></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 </body>
 </html>

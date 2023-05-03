@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.RockOn.domain.Route;
 import com.RockOn.repository.RoutesRepository;
 
+
 @Service
 public class RoutesService {
 	@Autowired
@@ -29,5 +30,8 @@ public class RoutesService {
 		Route route = new Route();
 
 		return routesRepo.save(route);
+	}
+	public void delete(Route route) {
+		routesRepo.delete(route);
 	}
 }

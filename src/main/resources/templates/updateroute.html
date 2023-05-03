@@ -67,6 +67,11 @@
 		<div>
 			<input class="submit-button" type="submit" value="Update" />
 		</div>
+
+	</form>
+	<form method="post" th:action="@{/updateroute/{routeId}/{userId}/delete(routeId=${route.routeId},userId=${userId})}">
+		<input type="hidden" th:field="${route.routeId}" /> <input
+			class="delete-button" type="submit" value="Delete" />
 	</form>
 </body>
 </html>

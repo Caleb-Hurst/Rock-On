@@ -20,6 +20,7 @@ public class HomeController {
 		User user = userService.findById(userId);
 	    model.put("userId", userId);
 	    model.put("user", user.getName());
+	    model.put("routes", user.getRoutes());
 	    return "home";
 	}
 

@@ -183,3 +183,21 @@ form input[type="submit"]:hover {
   padding-top:10px;
   margin: 20px auto 0;
 }
+.delete-button {
+  display: block; /* This makes the button a block element */
+  margin: 0 auto; /* This centers the block element horizontally */
+  padding-top:10px;
+  margin: 20px auto 0;
+}
+.delete-button {
+  background-color: red !important;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.delete-button :hover {
+  background-color: #E06A6A;
+}
