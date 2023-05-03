@@ -27,7 +27,7 @@ public class RoutesController {
 	public String route(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 		model.put("userId", userId);
-		model.put("user", user.getName());
+		model.put("user", user.getUsername());
 		List<Route> routes = routesService.findAll();	
 		Route route = new Route();
 		model.put("route", route);
@@ -45,7 +45,7 @@ public class RoutesController {
 	public String getRouteData(@PathVariable Long routeId,@PathVariable("userId") Long userId, ModelMap model) {
 		Route route = routesService.findById(routeId);
 		User user = userService.findById(userId);
-		model.addAttribute("username",user.getName());
+		model.addAttribute("username",user.getUsername());
 		String description = route.getDescription().replaceAll("<br/>", "\n");
 		route.setDescription(description);
 		model.put("user", user);
@@ -58,7 +58,7 @@ public class RoutesController {
 	public String updateRouteData(@PathVariable Long routeId,@PathVariable("userId") Long userId, ModelMap model) {
 		Route route = routesService.findById(routeId);
 		User user = userService.findById(userId);
-		model.addAttribute("user",user.getName());
+		model.addAttribute("user",user.getUsername());
 		String description = route.getDescription().replaceAll("<br/>", "\n");
 		route.setDescription(description);
 		model.put("route", route);
@@ -69,7 +69,7 @@ public class RoutesController {
 	@GetMapping("/createroute/{userId}")
 	public String createNewRoute(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
-		model.addAttribute("user",user.getName());
+		model.addAttribute("user",user.getUsername());
 		Route route = new Route();
 		model.put("route", route);
 		model.addAttribute("userId", userId);	

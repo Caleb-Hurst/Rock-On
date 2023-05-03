@@ -28,7 +28,7 @@ public class ForumController {
 	public String channel(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 		model.put("userId", userId);
-		model.put("user", user.getName());
+		model.put("user", user.getUsername());
 		List<Channel> channels = channelService.findAll();
 		Channel channel = new Channel();
 		model.put("channel", channel);

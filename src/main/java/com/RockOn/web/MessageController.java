@@ -47,7 +47,7 @@ public class MessageController {
 	public String getChannelData(@PathVariable Long channelId,@PathVariable("userId") Long userId, Model model) {
 		Channel channel = channelService.findById(channelId);
 		User user = userService.findById(userId);
-		model.addAttribute("username",user.getName());
+		model.addAttribute("username",user.getUsername());
 		model.addAttribute("channel", channel);
 		model.addAttribute("userId", userId);
 		model.addAttribute("channelId", channel.getChannelId());

@@ -21,12 +21,12 @@ public class LoginController {
 		model.put("user", new User());
 		return "login";
 	}
-	@PostMapping("/login")
-	public String findByName(User user,ModelMap model) {
-		userService.save(user);
-		model.put("user", user);
-		return "redirect:/home/" + user.getUserId() + "/" ;
-	}
+//	@PostMapping("/login")
+//	public String findByName(User user,ModelMap model) {
+//		userService.save(user);
+//		model.put("user", user);
+//		return "redirect:/home/" + user.getUserId() + "/" ;
+//	}
 
 	
 }

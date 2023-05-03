@@ -15,11 +15,19 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/home/{userId}/")
+//	@GetMapping("/home/{userId}/")
+//	public String home(@PathVariable("userId") Long userId, ModelMap model) {
+//		User user = userService.findById(userId);
+//	    model.put("userId", userId);
+//	    model.put("user", user.getUsername());
+//	    model.put("routes", user.getRoutes());
+//	    return "home";
+//	}
+	@GetMapping("/home")
 	public String home(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 	    model.put("userId", userId);
-	    model.put("user", user.getName());
+	    model.put("user", user.getUsername());
 	    model.put("routes", user.getRoutes());
 	    return "home";
 	}
