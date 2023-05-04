@@ -7,18 +7,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.RockOn.domain.User;
 
-public class CustomSecurityUser extends User implements UserDetails{
-
+public class CustomSecurityUser extends User implements UserDetails {
 
 	private static final long serialVersionUID = 2245255566995328119L;
 
-	public CustomSecurityUser () {}
-	  public CustomSecurityUser(User user) {
-		    this.setAuthorities(user.getAuthorities());
-		    this.setUserId(user.getUserId());
-		    this.setPassword(user.getPassword());
-		    this.setUsername(user.getUsername());
-		  }
+	public CustomSecurityUser() {
+	}
+
+	public CustomSecurityUser(User user) {
+		this.setAuthorities(user.getAuthorities());
+		this.setUserId(user.getUserId());
+		this.setPassword(user.getPassword());
+		this.setUsername(user.getUsername());
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {

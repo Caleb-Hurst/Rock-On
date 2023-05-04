@@ -23,8 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		if (user == null)
 			throw new UsernameNotFoundException("Username and or password was incorrect.");
-
-		return new CustomSecurityUser(user);
+		CustomSecurityUser customSecurityUser = new CustomSecurityUser(user);
+		System.out.println(customSecurityUser);
+		return customSecurityUser;
 	}
 
 }

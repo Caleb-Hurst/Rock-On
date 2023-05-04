@@ -2,11 +2,9 @@ package com.RockOn.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import com.RockOn.domain.User;
 import com.RockOn.service.UserService;
 
 @Controller
@@ -27,6 +25,10 @@ public class HomeController {
 	public String home() {
 		
 	    return "home";
+	}
+	@PostMapping("/home")
+	public String returnhome() {		
+	    return "redirect:/home";
 	}
 
 }
