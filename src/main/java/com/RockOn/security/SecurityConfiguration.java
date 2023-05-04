@@ -37,13 +37,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 	  http
-	  
-	  .authorizeRequests()
-	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
-	    .anyRequest().hasAnyRole("USER").and()	    
-	  .formLogin()
-	  .loginPage("/login")
-	    .defaultSuccessUrl("/home")
-	    .permitAll();
+	    .authorizeRequests()
+	        .antMatchers("/logins/**", "/images/**").permitAll()
+	        .antMatchers("/admin/**").hasAnyRole("ADMIN")
+	        .antMatchers("/register/**").permitAll() // added this line to permit access to create-account
+	        .anyRequest().hasAnyRole("USER")
+	        .and()
+	    .formLogin()
+	        .loginPage("/login")
+	        .defaultSuccessUrl("/home")
+	        .permitAll();
   }
 }

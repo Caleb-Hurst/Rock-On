@@ -29,7 +29,7 @@ public class HomeController {
 		model.put("userId", user.getUserId());
 	    model.put("username", user.getUsername());
 	    model.put("routes", user.getRoutes());
-		model.put("user", user);
+		model.put("user", user.getUsername());
 	    return "home";
 	}
 //	@PostMapping("/home")

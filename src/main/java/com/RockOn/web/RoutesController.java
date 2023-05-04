@@ -63,7 +63,7 @@ public class RoutesController {
 		route.setDescription(description);
 		model.put("route", route);
 		model.addAttribute("userId", userId);
-		model.addAttribute("routeId", route.getRouteId());		
+		model.addAttribute("routeId", routeId);		
 		return "updateroute";
 	}
 	@GetMapping("/createroute/{userId}")

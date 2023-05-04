@@ -41,6 +41,7 @@ public class MessageController {
 	public List<Message> getChannelMessages(@PathVariable Long channelId) {
 		Channel channel = channelService.findById(channelId);
 		System.out.println(channel.getMessages());
+		
 		return channel.getMessages();
 	}
 	@GetMapping("/channel/{channelId}/{userId}")
