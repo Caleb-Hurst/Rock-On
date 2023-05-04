@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableGlobalAuthentication
+//@EnableGlobalAuthentication
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   
   @Autowired
@@ -31,18 +31,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     auth
       .userDetailsService(userDetailsService)
       .passwordEncoder(passwordEncoder);
+//	  auth.inMemoryAuthentication().withUser("caleb").password("password123").roles("USER","ADMIN");
   }
   
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http
-      .csrf().disable()
-      .authorizeRequests()
-        .antMatchers("/admin/**").hasAnyRole("ADMIN")
-        .anyRequest().hasAnyRole("USER").and()
-      .formLogin()
-        .loginPage("/login")
-        .defaultSuccessUrl("/home")
-        .permitAll();
+	  http
+	  
+	  .authorizeRequests()
+	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
+	    .anyRequest().hasAnyRole("USER").and()	    
+	  .formLogin()
+	  .loginPage("/login")
+	    .defaultSuccessUrl("/home")
+	    .permitAll();
   }
 }

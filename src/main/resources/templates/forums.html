@@ -8,13 +8,14 @@
 <body>
 
 	<nav>
-		<img style="padding-left: 30px;" class="logo"
-			th:src="@{/images/8.png}" alt="Logo"> <a
-			th:href="@{/home/{userId}/(userId=${userId})}"
-			style="padding-left: 30px;">HOME</a> <a
-			th:href="@{/forums/{userId}/(userId=${userId})}"
-			style="padding-left: 30px;">FORUMS</a> <a th:href="@{/routes/{userId}/(userId=${userId})}"
-			style="padding-left: 30px;">ROUTES</a>
+		<img style="padding-left: 30px;" class="logo" th:src="@{/images/8.png}" alt="Logo"> 
+			
+			<a th:href="@{/home/{userId}/(userId=${userId})}"	style="padding-left: 30px;">HOME</a> 
+			
+			<a th:href="@{/forums/{userId}/(userId=${userId})}" style="padding-left: 30px;">FORUMS</a> 
+			
+			<a th:href="@{/routes/{userId}/(userId=${userId})}"	style="padding-left: 30px;">ROUTES</a>
+			
 			<a th:text="'User: ' + ${user}" style="padding-left: 30px; font-style: italic;"></a>
 
 	</nav>
