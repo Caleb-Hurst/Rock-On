@@ -24,11 +24,8 @@ public class HomeController {
 //	    return "home";
 //	}
 	@GetMapping("/home")
-	public String home(@PathVariable("userId") Long userId, ModelMap model) {
-		User user = userService.findById(userId);
-	    model.put("userId", userId);
-	    model.put("user", user.getUsername());
-	    model.put("routes", user.getRoutes());
+	public String home() {
+		
 	    return "home";
 	}
 
