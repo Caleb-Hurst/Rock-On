@@ -1,12 +1,16 @@
 package com.RockOn.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 public class Message {
@@ -23,9 +27,14 @@ public class Message {
     public void setId(Long id) {
         this.id = id;
     }
+    @Type(type="text")
+	@Lob
+    @Column(length = 10000)
     public String getMessage() {
         return message;
     }
+    
+    @Column(length = 10000)
     public void setMessage(String message) {
         this.message = message;
     }

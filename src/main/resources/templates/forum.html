@@ -18,7 +18,11 @@
 			style="padding-left: 30px;">ROUTES</a> <a
 			th:text="'User: ' + ${username}"
 			style="padding-left: 30px; font-style: italic;"></a>
-
+		<form method="post" action="/logout">
+			<input type="hidden" th:name="${_csrf.parameterName}"
+				th:value="${_csrf.token}" />
+			<button class="button" type="submit">LOGOUT</button>
+		</form>
 	</nav>
 	<div class="bottom-half">
 
@@ -31,7 +35,7 @@
 			<div th:each="message : ${channel.messages}"
 				th:class="${messageStat.odd} ? 'odd' : 'even'">
 				<p class="message-text"
-					th:text="${message.user.name + ': ' + message.message}"></p>
+					th:text="${message.user.username + ': ' + message.message}"></p>
 			</div>
 		</div>
 	</div>
