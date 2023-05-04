@@ -6,6 +6,44 @@ nav {
 	padding: 10px;
 	border-bottom: 1px solid #e2e2e2;
 }
+nav button {
+	background-color: transparent;
+	color: #e2e2e2;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 16px;
+	font-family: Tahoma;
+	position: relative;
+	text-transform: upper-case;
+	margin-bottom: 6px;
+	margin-left: 20px;
+}
+
+nav button:hover {
+	background-color: transparent;
+	color: #33FF46;
+}
+
+nav button::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	transition: width 0.3s ease-in-out;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+nav button:hover::after {
+	width: 100%;
+}
 
 head {
 	display: flex;
