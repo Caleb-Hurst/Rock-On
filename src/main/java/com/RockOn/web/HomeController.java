@@ -1,6 +1,7 @@
 package com.RockOn.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,14 +29,14 @@ public class HomeController {
 	    return "home";
 	}
 	@GetMapping("/home")
-	public String home(User user, ModelMap model) {
-//		List<User> allUserAccounts = adminService.getAllUserAccounts();
+	public String home(@AuthenticationPrincipal User user,ModelMap model) {
 		model.put("userId", user.getUserId());
 	    model.put("username", user.getUsername());
 	    model.put("routes", user.getRoutes());
 		model.put("user", user.getUsername());
 	    return "home";
 	}
+	
 //	@PostMapping("/home")
 //	public String returnhome() {		
 //	    return "home";
