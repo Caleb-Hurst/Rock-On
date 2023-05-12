@@ -1,13 +1,13 @@
 package com.RockOn.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.RockOn.domain.User;
+//import com.RockOn.service.AdminService;
 import com.RockOn.service.UserService;
 
 @Controller
@@ -15,6 +15,9 @@ import com.RockOn.service.UserService;
 public class HomeController {
 	@Autowired
 	private UserService userService;
+	
+//	@Autowired
+//	private AdminService adminService;
 	
 	@GetMapping("/home/{userId}/")
 	public String home(@PathVariable("userId") Long userId, ModelMap model) {
@@ -25,7 +28,8 @@ public class HomeController {
 	    return "home";
 	}
 	@GetMapping("/home")
-	public String home(@AuthenticationPrincipal User user,ModelMap model) {
+	public String home(User user, ModelMap model) {
+//		List<User> allUserAccounts = adminService.getAllUserAccounts();
 		model.put("userId", user.getUserId());
 	    model.put("username", user.getUsername());
 	    model.put("routes", user.getRoutes());
