@@ -170,7 +170,7 @@ body {
 }
 
 
-html, body {
+html,body {
 	height: 100%;
 }
 
@@ -190,97 +190,80 @@ img {
   margin-bottom: 30px;
 }
 
-.login {
-  width: 300px;
-  padding: 40px;
-  background-color: #D3CEBD;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: Tahoma;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #e6e6e6;
-  justify-content: center;
-}
-
-button[type="submit"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color:#29b43c;
-  color: #e6e6e6;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-family: Tahoma;
-}
-
-button[type="submit"]:hover {
-  background-color:  #94D67D;
-  color:#4D574A;
-  font-family: Tahoma;
-}
-button.btn {
+.BH-head {
+	color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+	align-items: center;
+	font-size: 30px;
 	font-family: Tahoma;
-    display: block;
-    margin: 0 auto;
+	text-align: center;
+	padding-top: 60px;
+}
+p::after {
+	content: "";
+	display: block;
+	height: 1px;
+	width: 60%;
+	background-color: #e2e2e2;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+users {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.channel-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* Remove the black border */
-.login form {
-    border: none;
+.channel-table tbody {
+  width: 100%;
 }
 
-/* Add some modern styling */
-.login fieldset {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+.channel-table td {
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
+  padding: 5px;
 }
-.login legend {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+.channel-table tr:nth-child(even) {
+background-image: linear-gradient(to left bottom, #5b5b5b, #6c6c6c, #7e7e7e, #909090, #a3a3a3);     
 }
-.login label {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 5px;
+
+.channel-table tr:nth-child(odd) {
+  background-image: linear-gradient(to right top, #5b5b5b, #6c6c6c, #7e7e7e, #909090, #a3a3a3);
+  
 }
-.login input[type="text"],
-.login input[type="password"] {
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
+
+.channel-table tr:nth-child(even) a,
+.channel-table tr:nth-child(odd) a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Tahoma;
+  color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
 }
-fieldset {
-  border: none;
+.channel-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+.channel-table tr:nth-child(even) a:hover,
+.channel-table tr:nth-child(odd) a:hover {
+  color: #33FF46;
+}
+tr td a {
+  color: #fff;
 }

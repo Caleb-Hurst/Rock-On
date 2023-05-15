@@ -103,30 +103,7 @@ nav a:hover {
 	color: #33FF46;
 }
 
-.search-container {
-	display: flex;
-	align-items: center;
-	background-color: transparent;
-	border-color: white;
-}
 
-.search-container input[type="text"] {
-	padding: 10px;
-	font-size: 16px;
-	background-color: transparent;
-	border-radius: 10px;
-	border-color: white;
-}
-
-.search-container button {
-	padding: 10px;
-	margin-left: 10px;
-	background-color: #4CAF50;
-	color: white;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
-}
 
 table {
 	display: flex;
