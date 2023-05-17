@@ -1,4 +1,167 @@
+.logout{
+	background-color: transparent;
+}
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	padding: 10px;
+	border-bottom: 1px solid #e2e2e2;
+}
+button.logout:hover {
+    background-color: transparent;
+    color: inherit;
+}
+nav button {
+	background-color: transparent;
+	color: #e2e2e2;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 16px;
+	font-family: Tahoma;
+	position: relative;
+	text-transform: upper-case;
+	margin-bottom: 6px;
+	margin-left: 20px;
+}
 
+nav button:hover {
+	background-color: transparent;
+	color: #33FF46;
+}
+
+nav button::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	transition: width 0.3s ease-in-out;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+nav button:hover::after {
+	width: 100%;
+}
+
+bottom-half {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+new-channel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo {
+	max-height: 63px;
+	max-width: 63px;
+}
+
+nav a {
+	color: #e2e2e2;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 2px;
+	align-items: center;
+	font-size: 16px;
+	font-family: Tahoma;
+}
+
+nav a:hover::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 100%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	padding: 0 5px; /* Add padding to the line */
+}
+
+nav a::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #33FF46;
+	margin-top: 5px;
+	transition: width 0.3s ease-in-out; /* Add transition effect */
+}
+
+nav a:hover::after {
+	width: 100%; /* Increase the width on hover */
+}
+
+nav a:hover {
+	background-color: transparent;
+	color: #33FF46;
+}
+
+.bottom-half {
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 10px;
+	justify-content: center;
+	width: 60%;
+	margin: 0 auto; /* Add this line */
+}
+.BH-head {
+	color: #e2e2e2;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	letter-spacing: 8px;
+	align-items: center;
+	font-size: 30px;
+	font-family: Tahoma;
+	text-align: center;
+	padding-top: 60px;
+	text-transform: uppercase;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: transparent;
+}
+.search-container {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border-color: white;
+}
+
+.search-container input[type="text"] {
+	padding: 10px;
+	font-size: 16px;
+	background-color: transparent;
+	border-radius: 10px;
+	border-color: white;
+}
+
+.search-container button {
+	padding: 10px;
+	margin-left: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
 
 body {
 	margin: 0;

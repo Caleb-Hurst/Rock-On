@@ -26,8 +26,15 @@ public class User {
     private List<Channel> channels = new ArrayList<>();
     private List<Route> routes = new ArrayList<>();
     private Set<Authorities> authorities = new HashSet<>();
+    private Boolean isAdmin = false;
     
-    @Id
+    public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getUserId() {
         return userId;

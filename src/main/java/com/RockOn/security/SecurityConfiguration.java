@@ -41,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/logins/**", "/images/**").permitAll()
 	        .antMatchers("/admin/**").hasAnyRole("ADMIN")
 	        .antMatchers("/register/**").permitAll() // added this line to permit access to create-account
-	        .anyRequest().hasAnyRole("USER")
+	        .anyRequest().authenticated() // grant access to all authenticated users (including admin)
 	        .and()
 	    .formLogin()
 	        .loginPage("/login")

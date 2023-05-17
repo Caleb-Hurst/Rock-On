@@ -16,8 +16,8 @@
 			style="padding-left: 30px;">FORUMS</a> <a
 			th:href="@{/routes/{userId}/(userId=${userId})}"
 			style="padding-left: 30px;">ROUTES</a> <a
-			th:text="'User: ' + ${username}"
-			style="padding-left: 30px; font-style: italic;"></a>
+				th:text="'User: ' + ${username}"
+				style="padding-left: 30px; font-style: italic;" th:href="@{/user/{userId}/(userId=${userId})}"></a>
 		<form method="post" action="/logout">
 			<input type="hidden" th:name="${_csrf.parameterName}"
 				th:value="${_csrf.token}" />
