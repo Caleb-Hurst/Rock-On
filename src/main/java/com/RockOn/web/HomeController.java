@@ -23,6 +23,8 @@ public class HomeController {
 	@GetMapping("/home/{userId}/")
 	public String home(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
+		userService.setAdmin(user);
+		model.put("isAdmin", user.getIsAdmin());
 	    model.put("userId", userId);
 	    model.put("user", user.getUsername());
 	    model.put("routes", user.getRoutes());
@@ -31,6 +33,8 @@ public class HomeController {
 	@GetMapping("/home")
 	public String home(@AuthenticationPrincipal User user,ModelMap model) {
 		model.put("userId", user.getUserId());
+		userService.setAdmin(user);
+		model.put("isAdmin", user.getIsAdmin());
 	    model.put("username", user.getUsername());
 	    model.put("routes", user.getRoutes());
 		model.put("user", user.getUsername());
