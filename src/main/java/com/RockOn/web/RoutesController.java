@@ -107,10 +107,9 @@ public class RoutesController {
 	@PostMapping("/updateroute/{routeId}/{userId}/delete")
 	public String deleteRoute(@PathVariable Long routeId, @PathVariable("userId") Long userId, Route route) {
 		User user = userService.findById(userId);
-		Route deletedRoute = routesService.findById(routeId);
-		user.getRoutes().remove(deletedRoute);
-
-		routesService.delete(deletedRoute);
+		Route deletedRoute = routesService.findById(routeId);		
+        user.getRoutes().remove(deletedRoute);		        		    
+		 routesService.delete(deletedRoute);
 		return "redirect:/routes/" + userId + "/";
 	}
 }

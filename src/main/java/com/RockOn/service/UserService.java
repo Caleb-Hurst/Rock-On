@@ -32,14 +32,6 @@ public class UserService {
 		return userRepo.findByUsername(username);
 		
 	}
-	public User setAdmin(User user) {
-	    List<String> authorities = user.getAuthorities().stream()
-	                                      .map(Authorities::getAuthority)
-	                                      .collect(Collectors.toList());
-	    if (authorities.contains("ROLE_ADMIN")) {
-	        user.setIsAdmin(true);
-	    }
-	    return user;
-	}
+	
 
 }
