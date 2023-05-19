@@ -69,7 +69,7 @@ public class User {
     public void setChannels(List<Channel> channels) {
         this.channels = channels;
     }
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "user_route",
         joinColumns = @JoinColumn(name = "user_id"),
