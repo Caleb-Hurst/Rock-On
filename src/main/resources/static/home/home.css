@@ -127,10 +127,11 @@ nav a:hover {
 	border-radius: 5px;
 }
 
-body {
+html,body {
 	margin: 0;
 	background-image: linear-gradient(to right top, #151616, #202426, #2c3337, #3c414a,
 		#504f5c);
+		height: 100%;
 }
 
 .slideshow-container {

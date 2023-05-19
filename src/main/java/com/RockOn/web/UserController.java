@@ -28,8 +28,7 @@ public class UserController {
 	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	        if (auth.getAuthorities().stream().noneMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
 	            throw new AccessDeniedException("User is not authorized to access this endpoint");
-	        }
-	        
+	        }	        
 	        List<User> users = adminService.getAllUserAccounts();
 	        User user = userService.findById(userId);
 	        model.put("user", user);

@@ -23,81 +23,94 @@ public class RoutesController {
 	private RoutesService routesService;
 	@Autowired
 	private UserService userService;
+
 	@GetMapping("/routes/{userId}/")
 	public String route(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 		model.put("userId", userId);
 		model.put("user", user.getUsername());
-		List<Route> routes = routesService.findAll();	
+		List<Route> routes = routesService.findAll();
 		Route route = new Route();
 		model.put("route", route);
 		model.put("routes", routes);
 		return "routes";
 	}
+
 	@PostMapping("/routes/{userId}/")
 	public String newRoute(Route route, @PathVariable("userId") Long userId) {
 		String description = route.getDescription().replaceAll("\n", "<br/>");
-        route.setDescription(description);
+		route.setDescription(description);
 		routesService.save(route);
 		return "redirect:/routes/" + userId + "/";
 	}
+
 	@GetMapping("/route/{routeId}/{userId}")
-	public String getRouteData(@PathVariable Long routeId,@PathVariable("userId") Long userId, ModelMap model) {
+	public String getRouteData(@PathVariable Long routeId, @PathVariable("userId") Long userId, ModelMap model) {
 		Route route = routesService.findById(routeId);
 		User user = userService.findById(userId);
-		model.addAttribute("username",user.getUsername());
+		model.addAttribute("username", user.getUsername());
 		String description = route.getDescription().replaceAll("<br/>", "\n");
 		route.setDescription(description);
 		model.put("user", user);
 		model.put("route", route);
 		model.addAttribute("userId", userId);
-		model.addAttribute("routeId", route.getRouteId());		
+		model.addAttribute("routeId", route.getRouteId());
 		return "route";
 	}
+
 	@GetMapping("/updateroute/{routeId}/{userId}")
-	public String updateRouteData(@PathVariable Long routeId,@PathVariable("userId") Long userId, ModelMap model) {
+	public String updateRouteData(@PathVariable Long routeId, @PathVariable("userId") Long userId, ModelMap model) {
 		Route route = routesService.findById(routeId);
 		User user = userService.findById(userId);
-		model.addAttribute("user",user.getUsername());
+		model.addAttribute("user", user.getUsername());
 		String description = route.getDescription().replaceAll("<br/>", "\n");
 		route.setDescription(description);
 		model.put("route", route);
 		model.addAttribute("userId", userId);
-		model.addAttribute("routeId", routeId);		
+		model.addAttribute("routeId", routeId);
 		return "updateroute";
 	}
+
 	@GetMapping("/createroute/{userId}")
 	public String createNewRoute(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
-		model.addAttribute("user",user.getUsername());
+		model.addAttribute("user", user.getUsername());
 		Route route = new Route();
 		model.put("route", route);
-		model.addAttribute("userId", userId);	
-		
+		model.addAttribute("userId", userId);
+
 		return "createroute";
 	}
+
 	@PostMapping("/createroute/{userId}")
 	public String createdRoute(@PathVariable("userId") Long userId, Route route) {
-		routesService.save(route);		
+		routesService.save(route);
 		return "redirect:/routes/" + userId + "/";
 	}
+
 	@PostMapping("/updateroute/{routeId}/{userId}")
-	public String updatedRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId, Route route) {
-		routesService.save(route);		
+	public String updatedRoute(@PathVariable Long routeId, @PathVariable("userId") Long userId, Route route) {
+		routesService.save(route);
 		return "redirect:/route/" + routeId + "/" + userId;
 	}
+
 	@PostMapping("/updateroute/{routeId}/{userId}/completed")
-	public String updatecompletedRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId) {
+	public String updatecompletedRoute(@PathVariable Long routeId, @PathVariable("userId") Long userId) {
 		User user = userService.findById(userId);
 		Route route = routesService.findById(routeId);
 		route.setCompleted(true);
 		user.getRoutes().add(route);
-		userService.save(user);		
+		userService.save(user);
 		return "redirect:/route/" + routeId + "/" + userId;
 	}
+
 	@PostMapping("/updateroute/{routeId}/{userId}/delete")
-	public String deleteRoute(@PathVariable Long routeId,@PathVariable("userId") Long userId, Route route) {
-		routesService.delete(route);		
+	public String deleteRoute(@PathVariable Long routeId, @PathVariable("userId") Long userId, Route route) {
+		User user = userService.findById(userId);
+		Route deletedRoute = routesService.findById(routeId);
+		user.getRoutes().remove(deletedRoute);
+
+		routesService.delete(deletedRoute);
 		return "redirect:/routes/" + userId + "/";
 	}
 }

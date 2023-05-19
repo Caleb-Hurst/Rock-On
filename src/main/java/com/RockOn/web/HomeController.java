@@ -32,12 +32,13 @@ public class HomeController {
 	}
 	@GetMapping("/home")
 	public String home(@AuthenticationPrincipal User user,ModelMap model) {
-		model.put("userId", user.getUserId());
-		userService.setAdmin(user);
-		model.put("isAdmin", user.getIsAdmin());
-	    model.put("username", user.getUsername());
-	    model.put("routes", user.getRoutes());
-		model.put("user", user.getUsername());
+		User foundUser = userService.findById(user.getUserId());
+		model.put("userId", foundUser.getUserId());
+		userService.setAdmin(foundUser);
+		model.put("isAdmin", foundUser.getIsAdmin());
+	    model.put("username", foundUser.getUsername());	    
+	    model.put("routes", foundUser.getRoutes());	   
+		model.put("user", foundUser.getUsername());
 	    return "home";
 	}
 	

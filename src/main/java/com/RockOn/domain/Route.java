@@ -3,6 +3,7 @@ package com.RockOn.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -74,7 +75,7 @@ public class Route {
 	public void setProtection(String protection) {
 		this.protection = protection;
 	}
-	@ManyToMany(mappedBy = "channels")
+	@ManyToMany(mappedBy = "routes")
 	public List<User> getUsers() {
 		return users;
 	}
