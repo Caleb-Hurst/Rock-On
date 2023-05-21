@@ -14,21 +14,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 //@EnableGlobalAuthentication
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   
-	 @Autowired
-	  private UserDetailsService userDetailsService;
-	  
-	  @Bean
-	  public PasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
-	  }
-	  
-	  @Override
-	  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	    auth
-	      .userDetailsService(userDetailsService)
-	      .passwordEncoder(passwordEncoder());
-//		  auth.inMemoryAuthentication().withUser("caleb").password("password123").roles("USER","ADMIN");
-	  }
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+  @Autowired
+  private UserDetailsService userDetailsService;
+  
+  @Bean
+  public PasswordEncoder passwordEncoder () {
+    return new BCryptPasswordEncoder();
+  }
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth
+      .userDetailsService(userDetailsService)
+      .passwordEncoder(passwordEncoder);
+//	  auth.inMemoryAuthentication().withUser("caleb").password("password123").roles("USER","ADMIN");
+  }
   
   @Override
   protected void configure(HttpSecurity http) throws Exception {
