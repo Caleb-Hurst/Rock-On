@@ -43,6 +43,6 @@ public class LoginController {
 	   
 		userService.save(user);
 		 authorService.save(auth);
-		return "redirect:login";
+		return "redirect:/login";
 	}
 }
