@@ -39,8 +39,7 @@ public class LoginController {
 		String hashedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(hashedPassword);
 	    Authorities auth = new Authorities("ROLE_USER",user); 
-	    user.getAuthorities().add(auth);
-	   
+	    user.getAuthorities().add(auth);	   
 		userService.save(user);
 		 authorService.save(auth);
 		return "redirect:/login";
