@@ -20,7 +20,7 @@
 						Reason: <span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
 					</div>
 				</div>
-				<!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
+				
 				<div th:if="${param.logout != null}">You have been logged out.</div>
 
 				<label for="username">Username</label> <input type="text"
