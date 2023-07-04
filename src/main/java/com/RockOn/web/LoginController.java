@@ -42,6 +42,6 @@ public class LoginController {
 	    user.getAuthorities().add(auth);	   
 		userService.save(user);
 		 authorService.save(auth);
-		return "redirect:/login";
+		return "login";
 	}
 }
