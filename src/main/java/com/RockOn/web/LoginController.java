@@ -35,6 +35,11 @@ public class LoginController {
 		model.put("user", new User());
 		return "register";
 	}
+	 @GetMapping("/error")
+	    public String handleError(ModelMap model) {
+	        model.addAttribute("error", "An error occurred during login.");
+	        return "login"; // or redirect to the login page
+	    }
 	@PostMapping("/register")
 	public String registerUser(User user) {
 		String hashedPassword = passwordEncoder.encode(user.getPassword());
