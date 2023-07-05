@@ -29,7 +29,7 @@ CREATE TABLE `authorities` (
   PRIMARY KEY (`id`),
   KEY `FKov2uw9bvmedktrvmk2qchv198` (`user_id`),
   CONSTRAINT `FKov2uw9bvmedktrvmk2qchv198` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `authorities` (
 
 LOCK TABLES `authorities` WRITE;
 /*!40000 ALTER TABLE `authorities` DISABLE KEYS */;
-INSERT INTO `authorities` VALUES (1,'ROLE_USER	',1),(2,'ROLE_USER	',2),(3,'ROLE_USER',3),(4,'ROLE_USER',4),(5,'ROLE_USER',5),(6,'ROLE_USER',6),(7,'ROLE_USER',7),(8,'ROLE_USER',8),(9,'ROLE_ADMIN',9);
+INSERT INTO `authorities` VALUES (1,'ROLE_USER	',1),(2,'ROLE_USER	',2),(3,'ROLE_USER',3),(4,'ROLE_USER',4),(5,'ROLE_USER',5),(6,'ROLE_USER',6),(7,'ROLE_USER',7),(8,'ROLE_USER',8),(9,'ROLE_ADMIN',9),(10,'ROLE_ADMIN',9);
 /*!40000 ALTER TABLE `authorities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-18 20:17:02
+-- Dump completed on 2023-07-05 15:21:03

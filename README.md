@@ -24,6 +24,8 @@ Rock On is a user-friendly web app that revolutionizes how climbers manage and e
 
 You can visit [Rock On](https://rock-on-production.up.railway.app/) to try the app online.
 
+if you would like to use the admin feature please use the credentials listed below in "Locally Running Rock On"
+
 Everything you need to visit the site and use this application without cloning to your local machine is in the link above.
 
 If you wish to run the application locally, you may do so as well!
@@ -33,6 +35,12 @@ If you wish to run the application locally, you may do so as well!
 To run "Rock On" On your machine, you must have an IDE capable of running Java 11. If you use any other Java version, you may encounter bugs.
 
 You will also need to have the MySQL Editor application or a similar app that can run MySQL on your machine and be able to run your own local database on a port of your choosing. The default port will be 3306 and the database will automatically create itself at runtime. If you need to change the port, you can head over to the `application.properties` file and change it there.
+
+if you would like to pre populate the database with users and routes you may do so by running the file `populate.sql` this will allow you to have access to an account with administrative features via spring security. An admin user can observe and see all the users registered on the app by clicking the button "Admin" in the top nav bar next to the "LOGOUT" button upon logging in. 
+
+Login credentials for Admin: 
+Username: admin	
+Password: password
 
 You can add your database login info here:
 "spring.datasource.username=" and "spring.datasource.password="
