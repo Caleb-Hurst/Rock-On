@@ -17,9 +17,10 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
-//	@Autowired
-//	private AdminService adminService;
-	
+	 @GetMapping("/")
+	    public String root() {
+	        return "redirect:/home";
+	    }
 	@GetMapping("/home/{userId}/")
 	public String home(@PathVariable("userId") Long userId, ModelMap model) {
 		User user = userService.findById(userId);
@@ -38,9 +39,6 @@ public class HomeController {
 	    return "home";
 	}
 	
-//	@PostMapping("/home")
-//	public String returnhome() {		
-//	    return "home";
-//	}
+
 
 }

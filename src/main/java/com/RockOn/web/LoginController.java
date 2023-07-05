@@ -12,8 +12,6 @@ import com.RockOn.domain.User;
 import com.RockOn.service.AuthorityService;
 import com.RockOn.service.UserService;
 
-
-
 @Controller
 
 public class LoginController {
@@ -21,33 +19,35 @@ public class LoginController {
 	private AuthorityService authorService;
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping("/login")
 	public String login(ModelMap model) {
 		return "login";
 	}
-	
+
 	@GetMapping("/register")
 	public String register(ModelMap model) {
 		model.put("user", new User());
 		return "register";
 	}
-	 @GetMapping("/error")
-	    public String handleError(ModelMap model) {
-	        model.addAttribute("error", "An error occurred during login.");
-	        return "login"; // or redirect to the login page
-	    }
+
+	@GetMapping("/error")
+	public String handleError(ModelMap model) {
+		model.addAttribute("error", "An error occurred during login.");
+		return "login"; // or redirect to the login page
+	}
+
 	@PostMapping("/register")
 	public String registerUser(User user) {
 		String hashedPassword = passwordEncoder.encode(user.getPassword());
-	    user.setPassword(hashedPassword);
-	    Authorities auth = new Authorities("ROLE_USER",user); 
-	    user.getAuthorities().add(auth);	   
+		user.setPassword(hashedPassword);
+		Authorities auth = new Authorities("ROLE_USER", user);
+		user.getAuthorities().add(auth);
 		userService.save(user);
-		 authorService.save(auth);
+		authorService.save(auth);
 		return "redirect:/login";
 	}
 }
