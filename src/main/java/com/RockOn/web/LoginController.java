@@ -29,6 +29,7 @@ public class LoginController {
 	public String login(ModelMap model) {
 		return "login";
 	}
+	
 	@GetMapping("/register")
 	public String register(ModelMap model) {
 		model.put("user", new User());
